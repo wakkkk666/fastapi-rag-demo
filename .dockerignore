@@ -1,0 +1,43 @@
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# Git
+.git/
+.gitignore
+
+# 虚拟环境
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 日志
+*.log
+uvicorn_stdout.log
+uvicorn_stderr.log
+
+# 本地上传目录和数据库（运行时挂载volume）
+uploads/
+chroma_db/
+
+# OCR模型缓存（镜像内会重新下载）
+.easyocr_models/
+.paddle_cache/
+
+# 测试和临时文件
+test_ocr.jpg
+build_chroma.py
+build_kb.py
+knowledge.txt
+
+# WorkBuddy 项目文件
+.workbuddy/
+
+# Node.js
+node_modules/

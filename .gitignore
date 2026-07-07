@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+
+venv/
+
+uploads/
+
+chroma_db/
+
+.env
+
+uvicorn_stdout.log
+uvicorn_stderr.log
+
+.vscode/
+
+.idea/

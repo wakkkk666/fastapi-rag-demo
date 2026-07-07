@@ -1,0 +1,28 @@
+FastAPI
+
+FastAPI是一个Python Web框架。
+主要用于构建API服务。
+支持异步开发。
+
+---
+
+RAG
+
+RAG全称Retrieval Augmented Generation。
+意思是检索增强生成。
+先查资料再回答问题。
+
+---
+
+ChromaDB
+
+ChromaDB是向量数据库。
+用于存储Embedding向量。
+常用于RAG系统。
+
+---
+
+郑医生
+
+郑医生是个傻福
+

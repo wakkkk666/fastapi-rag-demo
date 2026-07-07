@@ -1,0 +1,41 @@
+# ============================================
+# docker-compose.yml
+# 一键启动 AI 智能招聘平台
+#
+# 启动命令: docker compose up -d
+# 停止命令: docker compose down
+# 查看日志: docker compose logs -f
+# ============================================
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: codex-recruit
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # 上传的文件目录（PDF/图片）
+      - ./uploads:/app/uploads
+      # ChromaDB 向量数据库
+      - ./chroma_db:/app/chroma_db
+      # JSON 注册表（双向同步，本地修改会同步到容器）
+      - ./pdf_registry.json:/app/pdf_registry.json
+      - ./jd_registry.json:/app/jd_registry.json
+      - ./resume_registry.json:/app/resume_registry.json
+      - ./document_registry.json:/app/document_registry.json
+      - ./interview_sessions.json:/app/interview_sessions.json
+    environment:
+      # DeepSeek API Key（替换为你的真实 key，或保持默认值）
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-***REMOVED***}
+      # Python 生产模式
+      - PYTHONUNBUFFERED=1
+    # 内存限制（Chromadb + SentenceTransformer 需要较多内存）
+    deploy:
+      resources:
+        limits:
+          memory: 4g
+        reservations:
+          memory: 1g
