@@ -49,14 +49,10 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 
 # 复制应用代码和 JSON 注册表文件
 COPY main.py .
-COPY pdf_registry.json .
-COPY jd_registry.json .
-COPY resume_registry.json .
-COPY document_registry.json .
-COPY interview_sessions.json .
 
 # 创建数据目录（运行时挂载）
-RUN mkdir -p uploads chroma_db
+RUN mkdir -p uploads chroma_db && \
+    touch pdf_registry.json jd_registry.json resume_registry.json document_registry.json interview_sessions.json
 
 # 声明端口
 EXPOSE 8000

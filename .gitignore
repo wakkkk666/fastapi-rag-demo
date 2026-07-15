@@ -7,6 +7,13 @@ uploads/
 
 chroma_db/
 
+# Runtime data may contain uploaded documents, resumes, job descriptions, and interview records.
+pdf_registry.json
+jd_registry.json
+resume_registry.json
+document_registry.json
+interview_sessions.json
+
 .env
 
 uvicorn_stdout.log
