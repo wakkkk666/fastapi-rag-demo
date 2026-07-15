@@ -39,9 +39,13 @@ class JobMatchRequest(BaseModel):
     jd_collection: str       # JD PDF的collection名
 
 # DeepSeek客户端
+deepseek_api_key = os.getenv("DEEPSEEK_API_KEY")
+if not deepseek_api_key:
+    raise RuntimeError("DEEPSEEK_API_KEY is required. Set it in .env or the environment before starting the app.")
+
 client = OpenAI(
-    api_key="YOUR_DEEPSEEK_API_KEY",
-    base_url="https://api.deepseek.com"
+    api_key=deepseek_api_key,
+    base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
 )
 
 embedding_model = SentenceTransformer(

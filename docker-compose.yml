@@ -29,7 +29,7 @@ services:
       - ./interview_sessions.json:/app/interview_sessions.json
     environment:
       # DeepSeek API Key（替换为你的真实 key，或保持默认值）
-      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-***REMOVED***}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:?Set DEEPSEEK_API_KEY in .env before starting Docker Compose}
       # Python 生产模式
       - PYTHONUNBUFFERED=1
     # 内存限制（Chromadb + SentenceTransformer 需要较多内存）
